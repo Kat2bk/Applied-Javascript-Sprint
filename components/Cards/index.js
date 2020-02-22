@@ -25,8 +25,8 @@ axios
   .then(response => {
     console.log(response.data.articles);
     Object.values(response.data.articles).forEach(function(item) {
-      item.forEach(function(item) {
-        displayCards.append(createCard(item));
+      item.forEach(function(key) {
+        displayCards.append(createCard(key));
       });
     });
   })
@@ -36,28 +36,28 @@ axios
 
 function createCard(obj) {
   const mainCard = document.createElement("div");
-  const headline = document.createElement("div");
+  const authorTitle = document.createElement("div");
   const authorBox = document.createElement("div");
   const imgContainer = document.createElement("div");
   const authorImg = document.createElement("img");
   const authorName = document.createElement("span");
 
-  mainCard.append(headline);
+  mainCard.append(authorTitle);
   mainCard.append(authorBox);
   authorBox.append(imgContainer);
   authorImg.append(imgContainer);
   authorBox.append(authorName);
 
   mainCard.classList.add("card");
-  headline.classList.add("headline");
+  authorTitle.classList.add("headline");
   authorBox.classList.add("author");
   imgContainer.classList.add("img-container");
   authorImg.classList.add("img");
   authorName.classList.add("span");
 
-  headline.textContent = obj.data.headline;
-  authorImg.setAttribute("src", obj.data.authorPhoto);
-  authorName.textContent = obj.data.authorName;
+  authorTitle.textContent = obj.headline;
+  authorImg.setAttribute("src", obj.authorPhoto);
+  authorName.textContent = obj.authorName;
 
   return mainCard;
 }
