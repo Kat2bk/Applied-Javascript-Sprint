@@ -26,3 +26,18 @@ axios
   .catch(error => {
     console.log("Unable to receieve data", error);
   });
+
+function createCard(data) {
+  const mainCard = document.createElement("div");
+  const headline = document.createElement("div");
+  const authorBox = document.createElement("div");
+  const imgContainer = document.createElement("div");
+  const authorImg = document.createElement("img");
+  const authorName = document.createElement("span");
+
+  mainCard.append(headline);
+  mainCard.append(authorBox);
+  authorBox.append(imgContainer);
+  authorImg.append(imgContainer);
+  authorBox.append(authorName);
+}
