@@ -9,38 +9,27 @@
 //  </div >
 // And add it to the DOM in the .header-container component
 
-const headerArray = [
-  {
-    date: "Smarch 28, 2019",
-    title: "Lambda Times",
-    temp: "98°"
-  }
-];
-
-function Header(data) {
+function createHeader(data) {
   const mainHeader = document.createElement("div");
-  const mainDate = document.createElement("span");
-  const mainTitle = document.createElement("h1");
-  const mainTemp = document.createElement("span");
+  const headerDate = document.createElement("span");
+  const headerTitle = document.createElement("h1");
+  const headerTemp = document.createElement("span");
 
-  // appending
+  mainHeader.append(headerDate);
+  mainHeader.append(headerTitle);
+  mainHeader.append(headerTemp);
 
-  mainHeader.append(mainDate);
-  mainHeader.append(mainTitle);
-  mainHeader.append(mainTemp);
-
-  // add classes
-
+  headerDate.classList.add("date");
   mainHeader.classList.add("header");
-  mainDate.classList.add("span");
-  mainDate.classList.add("date");
-  mainTitle.classList.add("h1");
-  mainTemp.classList.add("span");
-  mainTemp.classList.add("temp");
+  headerTemp.classList.add("temp");
 
-  // set data to objects - text content
+  headerDate.textContent = "SMARCH 28, 2019";
+  headerTitle.textContent = "Lambda Times";
+  headerTemp.textContent = "98°";
 
-  mainDate.textContent = data.date;
+  return mainHeader;
 }
 
 const displayHeader = document.querySelector(".header-container");
+
+displayHeader.append(createHeader());
