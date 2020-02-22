@@ -45,7 +45,7 @@ function createCard(obj) {
   mainCard.append(authorTitle);
   mainCard.append(authorBox);
   authorBox.append(imgContainer);
-  authorImg.append(imgContainer);
+  imgContainer.append(authorImg);
   authorBox.append(authorName);
 
   mainCard.classList.add("card");
